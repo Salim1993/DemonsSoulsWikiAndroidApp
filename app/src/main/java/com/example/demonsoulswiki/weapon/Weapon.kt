@@ -1,11 +1,14 @@
 package com.example.demonsoulswiki.weapon
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class weapon(
+@Entity(tableName = "Weapon")
+data class Weapon(
     @Json(name = "auxDamage")
     val auxDamage: String,
     @Json(name = "auxType")
@@ -35,6 +38,7 @@ data class weapon(
     @Json(name = "magDef")
     val magDef: Int,
     @Json(name = "name")
+    @PrimaryKey
     val name: String,
     @Json(name = "physAtk")
     val physAtk: Int,
