@@ -1,5 +1,9 @@
 package com.example.demonsoulswiki.networking
 
+import dagger.Module
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.HttpException
@@ -9,7 +13,9 @@ import java.io.IOException
 import javax.inject.Inject
 
 
-object ErrorUtils {
+@InstallIn(SingletonComponent::class)
+@Module
+class ErrorUtils {
 
     @Inject
     lateinit var retrofit: Retrofit

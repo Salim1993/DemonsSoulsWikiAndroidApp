@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.demonsoulswiki"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -25,12 +25,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.0.1'
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        useIR = true
     }
 }
 
@@ -47,6 +54,27 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     implementation 'androidx.fragment:fragment-ktx:1.3.6'
+
+    // Material Design
+    implementation 'androidx.compose.material:material:1.0.2'
+    // Material design icons
+    implementation 'androidx.compose.material:material-icons-core:1.0.2'
+    implementation 'androidx.compose.material:material-icons-extended:1.0.2'
+
+    //compose
+    implementation 'androidx.compose.ui:ui:1.0.2'
+    implementation 'androidx.compose.ui:ui-tooling:1.0.2'
+    implementation 'androidx.compose.animation:animation:1.0.2'
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation 'androidx.compose.foundation:foundation:1.0.2'
+    // Integration with activities
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    // Integration with ViewModels
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
+    // Integration with observables
+    implementation 'androidx.compose.runtime:runtime-livedata:1.0.2'
+    // Integration with navigation component
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha08"
 
     //testing
     testImplementation 'junit:junit:4.13.2'
@@ -68,10 +96,9 @@ dependencies {
 
     //room
     def room_version = "2.3.0"
-
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:2.3.0"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     //logging
     implementation 'com.jakewharton.timber:timber:5.0.0'

@@ -26,6 +26,7 @@ import com.example.demonsoulswiki.weapon.WeaponDao
  */
 @Database(entities = [Weapon::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun weaponDao(): WeaponDao
 
     companion object {
