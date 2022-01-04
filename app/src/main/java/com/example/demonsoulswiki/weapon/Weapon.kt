@@ -1,13 +1,16 @@
 package com.example.demonsoulswiki.weapon
 
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
 @Entity(tableName = "Weapon")
+@Parcelize
 data class Weapon(
     @Json(name = "auxDamage")
     val auxDamage: String,
@@ -54,4 +57,4 @@ data class Weapon(
     val weaponType: String,
     @Json(name = "weight")
     val weight: Double
-)
+) : Parcelable
