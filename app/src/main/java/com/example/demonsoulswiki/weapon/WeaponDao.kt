@@ -12,6 +12,9 @@ interface WeaponDao {
     @Query("SELECT * FROM weapon")
     fun getAllWeapons(): Flow<List<Weapon>>
 
+    @Query("SELECT * FROM weapon WHERE name = :weaponName")
+    fun getSingleWeapon(weaponName: String): Flow<Weapon>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWeaponList(list: List<Weapon>)
 }

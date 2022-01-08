@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Demon Souls Wiki</string>
+
+    <!-- weapon details -->
+    <string name="weapon_name">Weapon Name: </string>
+    <string name="weapon_type">Weapon Type: </string>
+    <string name="weapon_physical_attack">Physical Attack: </string>
+    <string name="weapon_physical_defense">Physical Defense: </string>
+    <string name="weapon_magic_attack">Magic Attack: </string>
+    <string name="weapon_magic_defense">Magic Defense: </string>
+    <string name="weapon_fire_attack">Fire Attack: </string>
+    <string name="weapon_fire_defense">Fire Defense: </string>
+    <string name="weapon_aux_damage">Auxiliary Damage: </string>
+    <string name="weapon_location">Location: </string>
+    <string name="weapon_str_bonus">Strength Bonus: </string>
+    <string name="weapon_str_req">Strength Requirement: </string>
+    <string name="weapon_dex_bonus">Dexterity Bonus: </string>
+    <string name="weapon_dex_req">Dexterity Requirement: </string>
+    <string name="weapon_faith_bonus">Faith Bonus: </string>
+    <string name="weapon_faith_req">Faith Requirement: </string>
+    <string name="weapon_crit_dam">Critical Damage: </string>
+    <string name="weapon_guard_break_dam">Guard Break Damage: </string>
+    <string name="weapon_weight">Weight: </string>
+    <string name="weapon_durability">Durability: </string>
 </resources>
