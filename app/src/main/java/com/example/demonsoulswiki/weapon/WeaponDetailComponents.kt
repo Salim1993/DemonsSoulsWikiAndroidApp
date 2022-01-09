@@ -1,10 +1,13 @@
 package com.example.demonsoulswiki.weapon
 
 
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,116 +20,80 @@ object WeaponDetailComponents {
 
     @Composable
     fun WeaponDetail(weapon: Weapon) {
-        val rowPadding = PaddingValues(0.dp, 8.dp)
-        val startTextPadding = PaddingValues(0.dp, 0.dp, 8.dp, 0.dp)
-        Column(modifier = Modifier.padding(16.dp, 0.dp)) {
-            Row {
-                Text(text = stringResource(id = R.string.weapon_name), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.name)
-            }
+        Column(modifier = Modifier
+            .padding(16.dp, 0.dp)
+            .verticalScroll(rememberScrollState()))
+        {
+            WeaponDetailsRow(headerStringId = R.string.weapon_name,
+                weaponText = weapon.name)
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_type), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.weaponType)
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_type,
+                weaponText = weapon.weaponType)
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_physical_attack), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.physAtk.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_physical_attack,
+                weaponText = weapon.physAtk.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_physical_defense), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.physDef.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_physical_defense,
+                weaponText = weapon.physDef.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_magic_attack), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.magAtk.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_magic_attack,
+                weaponText = weapon.magAtk.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_magic_defense), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.magDef.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_magic_defense,
+                weaponText = weapon.magDef.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_fire_attack), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.fireAtk.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_fire_attack,
+                weaponText = weapon.fireAtk.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_fire_defense), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.fireDef.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_fire_defense,
+                weaponText = weapon.fireDef.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_aux_damage), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.auxDamage)
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_aux_damage,
+                weaponText = weapon.auxDamage)
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_str_req), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.strReq.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_str_req,
+                weaponText = weapon.strReq.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_str_bonus), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.strBonus)
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_str_bonus,
+                weaponText = weapon.strBonus)
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_dex_req), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.dexReq.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_dex_req,
+                weaponText = weapon.dexReq.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_dex_bonus), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.dexBonus)
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_dex_bonus,
+                weaponText = weapon.dexBonus)
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_dex_req), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.dexReq.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_faith_req,
+                weaponText = weapon.faithReq.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_dex_bonus), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.dexBonus)
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_faith_bonus,
+                weaponText = weapon.faithBonus)
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_faith_req), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.faithReq.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_crit_dam,
+                weaponText = weapon.criticalDamage.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_faith_bonus), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.faithBonus)
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_guard_break_dam,
+                weaponText = weapon.guardBreakReduction.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_crit_dam), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.criticalDamage.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_weight,
+                weaponText = weapon.weight.toString())
 
-            Row {
-                Text(text = stringResource(id = R.string.weapon_guard_break_dam), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.guardBreakReduction.toString())
-            }
-
-            Row {
-                Text(text = stringResource(id = R.string.weapon_weight), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.weight.toString())
-            }
-
-            Row {
-                Text(text = stringResource(id = R.string.weapon_durability), modifier = Modifier.padding(startTextPadding))
-                Text(text = weapon.durability.toString())
-            }
+            WeaponDetailsRow(headerStringId = R.string.weapon_durability,
+                weaponText = weapon.durability.toString())
 
             Text(text = stringResource(id = R.string.weapon_location))
-            Text(text = weapon.location)
+            Text(modifier = Modifier.padding(0.dp, 8.dp, 0.dp, 24.dp), text = weapon.location)
+        }
+    }
+
+    @Composable
+    fun WeaponDetailsRow(headerStringId: Int, weaponText: String) {
+        val rowPadding = PaddingValues(0.dp, 8.dp)
+        val startTextPadding = PaddingValues(0.dp, 0.dp, 8.dp, 0.dp)
+
+        return Row(modifier = Modifier.padding(rowPadding)) {
+            Text(text = stringResource(id = headerStringId), modifier = Modifier.padding(startTextPadding))
+            Text(text = weaponText)
         }
     }
 }
