@@ -1,4 +1,4 @@
-package com.example.demonsoulswiki.weapon
+package com.example.demonsoulswiki.weapon.weaponList
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -9,16 +9,29 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
+import com.example.demonsoulswiki.weapon.Weapon
 
 object WeaponListComponents {
+
+    @Composable
+    fun WeaponListScreen(
+        weaponListViewModel: WeaponListViewModel,
+        onWeaponClick: (String) -> Unit
+    ) {
+
+        val list: List<Weapon> by weaponListViewModel.weaponListFlow.collectAsState(initial = listOf())
+        WeaponList(
+            list = list,
+            onWeaponClick = onWeaponClick
+        )
+    }
 
     @Composable
     fun WeaponList(list: List<Weapon>,

@@ -1,7 +1,6 @@
-package com.example.demonsoulswiki.weapon
+package com.example.demonsoulswiki.weapon.weaponDetail
 
 
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -10,13 +9,27 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.demonsoulswiki.R
+import com.example.demonsoulswiki.weapon.Weapon
+import dagger.hilt.android.AndroidEntryPoint
 
 object WeaponDetailComponents {
+
+    @Composable
+    fun WeaponDetailsScreen(weaponName: String, weaponDetailViewModel: WeaponDetailViewModel) {
+        val weapon: Weapon by weaponDetailViewModel.getWeaponDetails(weaponName).collectAsState(initial = DEFAULT_WEAPON)
+
+        WeaponDetail(
+            weapon = weapon
+        )
+    }
 
     @Composable
     fun WeaponDetail(weapon: Weapon) {
@@ -119,6 +132,30 @@ private val PREVIEW_WEAPON = Weapon("",
     0,
     "",
     "LMAO",
+    0.0
+)
+
+private val DEFAULT_WEAPON = Weapon("",
+    "",
+    0,
+    "",
+    0,
+    0,
+    "",
+    0,
+    0,
+    0,
+    0,
+    "",
+    0,
+    0,
+    "",
+    0,
+    0,
+    "",
+    0,
+    "",
+    "",
     0.0
 )
 
