@@ -17,3 +17,5 @@ local.properties
 /.idea/codeStyles/codeStyleConfig.xml
 .idea/misc.xml
 .idea/inspectionProfiles/Project_Default.xml
+.idea/discord.xml
+.idea/gradle.xml
