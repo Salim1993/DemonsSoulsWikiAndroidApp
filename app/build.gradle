@@ -30,7 +30,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.0.1'
+        kotlinCompilerExtensionVersion '1.4.0-alpha02'
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,7 +38,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        useIR = true
     }
     namespace 'com.example.demonsoulswiki'
 }
@@ -48,56 +47,58 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
     //android views
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
-    implementation 'androidx.fragment:fragment-ktx:1.4.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
 
     // Material Design
-    implementation 'androidx.compose.material:material:1.0.5'
+    implementation 'androidx.compose.material:material:1.3.1'
     // Material design icons
-    implementation 'androidx.compose.material:material-icons-core:1.0.5'
-    implementation 'androidx.compose.material:material-icons-extended:1.0.5'
+    implementation 'androidx.compose.material:material-icons-core:1.3.1'
+    implementation 'androidx.compose.material:material-icons-extended:1.3.1'
 
     //compose
-    implementation 'androidx.compose.ui:ui:1.0.5'
-    implementation 'androidx.compose.ui:ui-tooling:1.0.5'
-    implementation 'androidx.compose.animation:animation:1.0.5'
+    implementation 'androidx.compose.ui:ui:1.3.2'
+    implementation 'androidx.compose.ui:ui-tooling:1.3.2'
+    implementation 'androidx.compose.animation:animation:1.3.2'
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation 'androidx.compose.foundation:foundation:1.0.5'
+    implementation 'androidx.compose.foundation:foundation:1.3.1'
     // Integration with activities
-    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation 'androidx.activity:activity-compose:1.6.1'
     // Integration with ViewModels
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
     // Integration with observables
-    implementation 'androidx.compose.runtime:runtime-livedata:1.0.5'
+    implementation 'androidx.compose.runtime:runtime-livedata:1.3.2'
     // Integration with navigation component
-    implementation "androidx.navigation:navigation-compose:2.4.0-rc01"
+    implementation "androidx.navigation:navigation-compose:2.6.0-alpha04"
 
     //testing
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'io.mockk:mockk:1.13.3'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
     //networking
-    implementation "com.squareup.moshi:moshi:1.12.0"
-    implementation "com.squareup.moshi:moshi-kotlin:1.12.0"
-    implementation "com.squareup.retrofit2:converter-moshi:2.6.1"
+    implementation "com.squareup.moshi:moshi:1.14.0"
+    implementation "com.squareup.moshi:moshi-kotlin:1.14.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.12.0"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.14.0"
 
     //dagger
-    implementation 'com.google.dagger:hilt-android:2.38.1'
-    kapt 'com.google.dagger:hilt-compiler:2.38.1'
+    implementation 'com.google.dagger:hilt-android:2.44.2'
+    kapt 'com.google.dagger:hilt-compiler:2.44.2'
 
     //room
-    def room_version = "2.4.0"
+    def room_version = "2.4.3"
     implementation "androidx.room:room-runtime:$room_version"
-    implementation "androidx.room:room-ktx:2.4.0"
+    implementation "androidx.room:room-ktx:2.4.3"
     kapt "androidx.room:room-compiler:$room_version"
 
     //logging
