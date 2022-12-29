@@ -6,11 +6,14 @@ import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
 import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
+import retrofit2.HttpException
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class GetWeaponUseCaseTest {
 
     //mocks
@@ -33,7 +36,7 @@ class GetWeaponUseCaseTest {
     }
 
     @Test
-    fun `get weapon info successfully and save to database`() = runTest() {
+    fun `get weapon info successfully and save to database`() = runTest {
 
         //arrange
         val weaponsList = listOf(
@@ -47,6 +50,19 @@ class GetWeaponUseCaseTest {
 
         //assert
         coVerify { weaponDao.insertWeaponList(weaponsList) }
+    }
+
+    @Test
+    fun `get weapon info failed with exception, doesn't save to database`() = runTest {
+
+        //arrange
+        coEvery { service.getWeapons() } throws Exception("test exception")
+
+        //act
+        getWeaponUseCase.getWeaponInfo()
+
+        //assert
+        coVerify(exactly = 0) { weaponDao.insertWeaponList(any()) }
     }
 
     companion object {
