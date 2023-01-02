@@ -4,6 +4,7 @@ import com.example.demonsoulswiki.networking.DarkSoulsApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
+import timber.log.Timber
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -22,7 +23,7 @@ class GetWeaponUseCase @Inject constructor(
         } catch (e: HttpException) {
             e.printStackTrace()
         } catch (e: Exception) {
-            e.printStackTrace()
+            Timber.e(e)
         }
     }
 }

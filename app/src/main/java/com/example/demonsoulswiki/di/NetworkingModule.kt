@@ -24,5 +24,5 @@ object NetworkingModule {
         return retrofit.create(DarkSoulsApiService::class.java)
     }
 
-    private const val URL = "http://10.0.0.152:8000"
+    private const val URL = "http://192.168.1.2:8000"
 }
