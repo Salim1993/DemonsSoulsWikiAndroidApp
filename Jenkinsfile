@@ -20,10 +20,9 @@ pipeline {
               || currentBuild.result == 'SUCCESS') {  
           // Start your emulator, testing tools
           sh 'emulator @Pixel_3a_API_33_x86_64'
-          sh './gradlew connectedDebugAndroidTest'  
      
           // You're set to go, now execute your UI test
-          sh 'rspec spec -fd'
+          sh './gradlew connectedDebugAndroidTest'  
           }
         }
       }
