@@ -1,6 +1,8 @@
 //Code from tutorial: https://nimblehq.co/blog/jenkins-pipeline-for-mobile-testing
 
 pipeline {
+  agent any
+
   stages {                                      
     stage('Unit Test') {
           steps {
