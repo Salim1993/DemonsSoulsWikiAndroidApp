@@ -1,10 +1,6 @@
 //Code from tutorial: https://nimblehq.co/blog/jenkins-pipeline-for-mobile-testing
 
 pipeline {
-  agent { 
-    node { label 'android' }                     
-  }
-
   stages {                                      
     stage('Unit Test') {
           steps {
