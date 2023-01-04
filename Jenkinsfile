@@ -7,7 +7,7 @@ pipeline {
     stage('Unit Test') {
           steps {
             // Execute your Unit Test
-            sh './gradlew testDebugUnitTest'
+            bat './gradlew testDebugUnitTest'
           }
     }
 
@@ -17,10 +17,10 @@ pipeline {
           if (currentBuild.result == null         
               || currentBuild.result == 'SUCCESS') {  
           // Start your emulator, testing tools
-          sh 'emulator @Pixel_3a_API_33_x86_64'
+          bat 'emulator @Pixel_3a_API_33_x86_64'
      
           // You're set to go, now execute your UI test
-          sh './gradlew connectedDebugAndroidTest'  
+          bat './gradlew connectedDebugAndroidTest'  
           }
         }
       }
@@ -33,7 +33,7 @@ pipeline {
       archiveArtifacts(allowEmptyArchive: true, artifacts: 'app/build/outputs/apk/production/release/*.apk')
 
       // And kill the emulator?
-      sh 'adb emu kill'
+      bat 'adb emu kill'
     }
   }
 }
