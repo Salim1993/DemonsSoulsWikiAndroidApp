@@ -17,7 +17,7 @@ pipeline {
           if (currentBuild.result == null         
               || currentBuild.result == 'SUCCESS') {  
           // Start your emulator, testing tools
-          bat 'emulator @Pixel_3a_API_33_x86_64'
+          bat 'C:/Users/Salim/AppData/Local/Android/Sdk/emulator/emulator.exe -avd Pixel_3a_API_33_x86_64'
      
           // You're set to go, now execute your UI test
           bat './gradlew connectedDebugAndroidTest'  
@@ -33,7 +33,7 @@ pipeline {
       archiveArtifacts(allowEmptyArchive: true, artifacts: 'app/build/outputs/apk/production/release/*.apk')
 
       // And kill the emulator?
-      bat 'adb emu kill'
+      bat 'C:/Users/Salim/AppData/Local/Android/Sdk/platform-tools/adb.exe emu kill'
     }
   }
 }
