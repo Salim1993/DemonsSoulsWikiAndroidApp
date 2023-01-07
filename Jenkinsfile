@@ -29,7 +29,9 @@ pipeline {
               script {                                                          
                 if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {  
                   //wait for device before running tests
-                  bat 'C:/Users/Salim/AppData/Local/Android/Sdk/platform-tools/adb.exe wait-for-device'
+                  timeout(time: 20, unit: 'SECONDS') {
+                    bat 'C:/Users/Salim/AppData/Local/Android/Sdk/platform-tools/adb.exe wait-for-device'
+                  }
             
                   // You're set to go, now execute your UI test
                   bat './gradlew connectedDebugAndroidTest'  
